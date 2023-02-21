@@ -1,3 +1,9 @@
+_G.Prediction =  (  0.1411  ) -- good prediction for 120-130 ping
+
+_G.FOV =  (  500  ) -- change it to whatever u want
+
+_G.AimKey =  (  "c"  ) -- if u press this key the silent aim will turn off or on
+
 
 function sendnotif(STitle, SDescription, SDuration)
     game.StarterGui:SetCore("SendNotification", {
@@ -18,6 +24,7 @@ Drawing = Drawing
 
 local FOV_CIRCLE = Drawing.new("Circle")
 FOV_CIRCLE.Visible = true
+getgenv().whata = true
 FOV_CIRCLE.Filled = false
 FOV_CIRCLE.Thickness = 1
 FOV_CIRCLE.Transparency = 1
@@ -25,7 +32,34 @@ FOV_CIRCLE.Color = Color3.new(0, 0, 0)
 FOV_CIRCLE.Radius = _G.FOV
 FOV_CIRCLE.Position = Vector2.new(Camera.ViewportSize.X / 2, Camera.ViewportSize.Y / 2)
 FOV_CIRCLE.NumSides = 18
-
+function disappear()
+    FOV_CIRCLE.Visible = false
+end
+function appear()
+    FOV_CIRCLE.Visible = true
+end
+game.Players.LocalPlayer.Chatted:Connect(function(c)
+    if c:lower() == 'c' then
+        if SilentAim == true then
+            SilentAim = false
+	        sendnotif('senko silent aim', 'silent aim off', 3)
+        elseif SilentAim == false then
+            SilentAim = true
+	        sendnotif('senko silent aim', 'silent aim on', 3)
+	 end
+end
+end)
+game.Players.LocalPlayer.Chatted:Connect(function(c)
+    if c:lower() == 'rocks' then
+        if whata == true then
+            whata = false
+	        disappear()
+        elseif whata == false then
+            whata = true
+	        appear()
+	 end
+end
+end)
 
 Options = {
 	  Torso = "UpperTorso";
@@ -52,7 +86,7 @@ Mouse.KeyDown:Connect(function(KeyPressed)
 			sendnotif('senko silent aim', 'silent aim off', 3)
 			SilentAim = false
 		end
-	end
+        end
 end)
 
 local oldIndex = nil 
