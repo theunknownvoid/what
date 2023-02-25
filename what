@@ -1,9 +1,3 @@
-_G.Prediction =  (  0.1411  ) -- good prediction for 120-130 ping
-
-_G.FOV =  (  500  ) -- change it to whatever u want
-
-_G.AimKey =  (  "c"  ) -- if u press this key the silent aim will turn off or on
-
 
 function sendnotif(STitle, SDescription, SDuration)
     game.StarterGui:SetCore("SendNotification", {
