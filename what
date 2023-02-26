@@ -56,13 +56,13 @@ end
 end)
 game.Players.LocalPlayer.Chatted:Connect(function(c)
      if c:lower() == 'antislow' then
-         loadstring(game:HtppGet('https://pastebin.com/raw/kGfP0bQw'))()
+         loadstring(game:HttpGet('https://pastebin.com/raw/kGfP0bQw'))()
 end
 end)
 
 game.Players.LocalPlayer.Chatted:Connect(function(c)
      if c:lower() == 'resolve' then
-         loadstring(game:HtppGet('https://pastebin.com/raw/vhA63pTE'))()
+         loadstring(game:HttpGet('https://pastebin.com/raw/vhA63pTE'))()
 end
 end)
 
